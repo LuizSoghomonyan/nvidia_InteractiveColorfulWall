@@ -1,0 +1,9 @@
+<div>
+  <ng-container *ngFor="let row of matrixOfColors; let i = index">
+    <ng-container *ngFor="let column of row; let j = index">
+      <app-brick [color]="column"
+      ></app-brick>
+      <p>{{i}}  {{j}}</p>
+    </ng-container>
+  </ng-container>
+</div>
