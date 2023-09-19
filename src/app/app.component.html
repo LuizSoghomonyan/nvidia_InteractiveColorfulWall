@@ -1,44 +1,46 @@
-<form [formGroup]="form" class="form">
-  <mat-form-field class="input">
-    <mat-label>Width</mat-label>
-    <input type="number" matInput [formControlName]="'width'">
-    <mat-error *ngIf="form.controls['width'].hasError('required')">
-      Width is required
-    </mat-error>
-  </mat-form-field>
+<div class="container">
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="input">
+      <mat-label>Width</mat-label>
+      <input type="number" matInput [formControlName]="'width'">
+      <mat-error *ngIf="form.controls['width'].hasError('required')">
+        Width is required
+      </mat-error>
+    </mat-form-field>
 
 
-  <mat-form-field class="input">
-    <mat-label>Height</mat-label>
-    <input type="number" matInput [formControlName]="'height'">
-    <mat-error *ngIf="form.controls['height'].hasError('required')">
-      Height is required
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>Height</mat-label>
+      <input type="number" matInput [formControlName]="'height'">
+      <mat-error *ngIf="form.controls['height'].hasError('required')">
+        Height is required
+      </mat-error>
+    </mat-form-field>
 
 
-  <mat-form-field class="input">
-    <mat-label>Number of Colors</mat-label>
-    <input type="number" matInput [formControlName]="'colorCount'">
-    <mat-error *ngIf="form.controls['colorCount'].hasError('required')">
-      Number of Colors is required
-    </mat-error>
-  </mat-form-field>
+    <mat-form-field class="input">
+      <mat-label>Number of Colors</mat-label>
+      <input type="number" matInput [formControlName]="'colorCount'">
+      <mat-error *ngIf="form.controls['colorCount'].hasError('required')">
+        Number of Colors is required
+      </mat-error>
+    </mat-form-field>
 
-    <mat-checkbox class="input"
-                  [checked]="form.controls['changeColorsDiagonally'].value"
-                  (change)="form.controls['changeColorsDiagonally'].setValue(!form.controls['changeColorsDiagonally'].value)">
-      Enable Diagonal Color Changes
-        <mat-icon matTooltip="Enable this option to allow colors to change along diagonal lines.">info</mat-icon>
-    </mat-checkbox>
-
-
-
-  <button mat-stroked-button  color="accent" (click)="sendInputs()" type="submit">Send Changes</button>
-</form>
+      <mat-checkbox class="input"
+                    [checked]="form.controls['changeColorsDiagonally'].value"
+                    (change)="form.controls['changeColorsDiagonally'].setValue(!form.controls['changeColorsDiagonally'].value)">
+        Enable Diagonal Color Changes
+          <mat-icon matTooltip="Enable this option to allow colors to change along diagonal lines.">info</mat-icon>
+      </mat-checkbox>
 
 
-<div *ngIf="this.form.valid">
-  <app-wall [settings]="wallSetting"></app-wall>
+
+    <button mat-stroked-button  color="accent" (click)="sendInputs()" type="submit">Send Changes</button>
+  </form>
+
+
+  <div class="wall" *ngIf="this.form.valid">
+    <app-wall [settings]="wallSetting"></app-wall>
+  </div>
+
 </div>
-
