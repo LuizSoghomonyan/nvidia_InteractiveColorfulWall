@@ -15,10 +15,10 @@ export class AppComponent {
 
   constructor() {
     this.form = new FormGroup({
-      width: new FormControl<number>(0,[Validators.required]),
-      height: new FormControl<number>(0,[Validators.required]),
-      colorCount: new FormControl<number>(0,[Validators.required]),
-      changeColorsDiagonally: new FormControl<boolean>(false)
+      width: new FormControl<number>(7,[Validators.required]),
+      height: new FormControl<number>(9,[Validators.required]),
+      colorCount: new FormControl<number>(12,[Validators.required]),
+      changeColorsDiagonally: new FormControl<boolean>(true)
     })
   }
 
@@ -36,7 +36,7 @@ export class AppComponent {
       this.sendInputsIsClicked = true
     }else
       this.sendInputsIsClicked = false
-    console.log(this.form)
+
   }
 
   isHiddenWall() {

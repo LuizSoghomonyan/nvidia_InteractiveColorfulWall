@@ -7,12 +7,14 @@ import {Component, Input} from '@angular/core';
 })
 export class BrickComponent {
   @Input() color: string = 'white';
-  @Input() rowIndex: number = 0;
-  @Input() columnIndex: number = 0;
+  @Input() rowIndex: number;
+  @Input() columnIndex: number;
 
   public defaultWidth: string = '50px';
   public defaultHeight: string = '50px';
   constructor() {
+    this.rowIndex = 0;
+    this.columnIndex = 0;
   }
 
 

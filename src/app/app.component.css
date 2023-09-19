@@ -7,7 +7,7 @@
 .form {
   width: 300px;
   margin-right: 10%;
-  margin-left: 10%;
+  margin-left: 5%;
   margin-top: 10%;
 }
 
@@ -16,4 +16,14 @@
   margin-right: 10%;
   margin-left: 10%;
   margin-top: 10%;
+}
+
+.mat-checkbox {
+  margin-bottom: 10px;
+}
+
+
+.mat-icon {
+  vertical-align: middle;
+  margin-left: 5px;
 }
