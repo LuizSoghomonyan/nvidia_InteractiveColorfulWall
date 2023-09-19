@@ -1,5 +1,5 @@
 <div class="container">
-  <form [formGroup]="form" class="form">
+  <form [formGroup]="form" class="form" (ngSubmit)="sendInputs()">
     <mat-form-field class="input">
       <mat-label>Width</mat-label>
       <input type="number" matInput [formControlName]="'width'">
@@ -35,11 +35,11 @@
 
 
 
-    <button mat-stroked-button  color="accent" (click)="sendInputs()" type="submit">Send Changes</button>
+    <button mat-stroked-button  color="accent" (click)="sendInputs()">Send Changes</button>
   </form>
 
 
-  <div class="wall" *ngIf="this.form.valid">
+  <div class="wall" *ngIf="!isHiddenWall()">
     <app-wall [settings]="wallSetting"></app-wall>
   </div>
 

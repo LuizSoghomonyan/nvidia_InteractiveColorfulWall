@@ -9,13 +9,18 @@ import {getEmptyWallModel, WallModel} from "../../models/wall.model";
 export class WallComponent implements OnInit, OnChanges {
   @Input() settings: WallModel = getEmptyWallModel();
 
-  public matrixOfColors: string[][] = [[]];
+  public matrixOfColors: string[][] ;
+  public colorsByCount: string[];
 
   constructor() {
+    this.matrixOfColors = [[]];
+    this.colorsByCount = []
   }
 
   ngOnInit(): void {
     this.initMatrix();
+    this.initColors();
+    this.changeMatrixColors()
   }
 
 
@@ -30,7 +35,31 @@ export class WallComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if(changes['settings']){
       this.initMatrix();
+      this.initColors();
+      this.changeMatrixColors()
     }
+  }
 
+  private initColors() {
+
+    for(let i = 0; i < this.settings.colorCount; ++i){
+      this.colorsByCount.push(this.generateRandomHexColor());
+    }
+  }
+  private generateRandomHexColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+
+  private changeMatrixColors() {
+    for (let i = 0; i < this.matrixOfColors.length; i++) {
+      for(let j = 0; j < this.matrixOfColors[i].length; ++j){
+        this.matrixOfColors[i][j] =  this.colorsByCount[Math.floor(Math.random() * this.settings.colorCount)]
+      }
+    }
   }
 }

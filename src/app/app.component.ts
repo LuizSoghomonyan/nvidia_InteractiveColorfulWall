@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'InteractiveColorfulWall';
 
   public form: FormGroup;
+  private sendInputsIsClicked: boolean = false;
 
   constructor() {
     this.form = new FormGroup({
@@ -32,7 +33,13 @@ export class AppComponent {
         changeColorsDiagonally: this.form.get('changeColorsDiagonally')?.value,
 
       }
-    }
+      this.sendInputsIsClicked = true
+    }else
+      this.sendInputsIsClicked = false
     console.log(this.form)
+  }
+
+  isHiddenWall() {
+    return this.form.invalid && !this.sendInputsIsClicked;
   }
 }
