@@ -41,7 +41,7 @@ export class WallComponent implements OnInit, OnChanges {
   }
 
   private initColors() {
-
+    this.colorsByCount = []
     for(let i = 0; i < this.settings.colorCount; ++i){
       this.colorsByCount.push(this.generateRandomHexColor());
     }
